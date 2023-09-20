@@ -1,0 +1,21 @@
+
+.local-dos-dados{
+    display: flex
+
+}
+
+
+.dados{
+    width: 80px ;
+    height: 80px;
+    position: relative;
+    margin: 5px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgb(0, 0, 0, 0.25);
+
+}
+
+.btn-sortear-dados{
+
+    margin-top: 10px;
+}
