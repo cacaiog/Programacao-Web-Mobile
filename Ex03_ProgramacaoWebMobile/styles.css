@@ -15,6 +15,29 @@
 
 }
 
+
+.ponto-dos-dados{
+    --top: 80%;
+    --left: 80%;
+
+
+    width: 15px;
+    height: 15px;
+    background-color: black;
+    border-radius: 50%;
+
+
+    /*Posicao dos pontos*/
+    position: absolute;
+    top: var(--top);
+    left: var(--left);
+    transform: translateX (calc(var(--left) * -1)) translateY(calc(var(--top) * -1));
+
+
+}
+
+
+
 .btn-sortear-dados{
 
     margin-top: 10px;
