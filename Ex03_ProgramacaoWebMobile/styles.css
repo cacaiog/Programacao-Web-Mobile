@@ -1,44 +1,32 @@
-
-.local-dos-dados{
-    display: flex
-
+.local-dados {
+	display: flex;
 }
 
-
-.dados{
-    width: 80px ;
-    height: 80px;
-    position: relative;
-    margin: 5px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgb(0, 0, 0, 0.25);
-
+.dado {
+	width: 80px;
+	height: 80px;
+	position: relative;
+	margin: 5px;
+	border-radius: 10px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
 }
 
+.pontos-dado {
+	--top: 0%;
+	--left: 0%;
 
-.ponto-dos-dados{
-    --top: 80%;
-    --left: 80%;
+	width: 15px;
+	height: 15px;
+	background-color: #000000;
+	border-radius: 50%;
 
-
-    width: 15px;
-    height: 15px;
-    background-color: black;
-    border-radius: 50%;
-
-
-    /*Posicao dos pontos*/
-    position: absolute;
-    top: var(--top);
-    left: var(--left);
-    transform: translateX (calc(var(--left) * -1)) translateY(calc(var(--top) * -1));
-
-
+	
+	position: absolute;
+	top: var(--top);
+	left: var(--left);
+	transform: translateX(calc(var(--left) * -1)) translateY(calc(var(--top) * -1));
 }
 
-
-
-.btn-sortear-dados{
-
-    margin-top: 10px;
+.btn-sortear-dados {
+	margin-top: 10px;
 }

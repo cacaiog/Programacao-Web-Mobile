@@ -1,7 +1,5 @@
-// funcoes
-
-function criarDados(number){
-    const posicaoDosPontosMatrix = {
+function criarDados(number) {
+	const posicaoDoPonto = {
 		1: [
 			[50, 50]
 		],
@@ -37,18 +35,43 @@ function criarDados(number){
 		]
 	};
 
-    const dados = document.createElement("div");
+	const dado = document.createElement("div");
 
-    dados.classList.add("dados");
+	dado.classList.add("dado");
 
-    for (const posicaoDospontos of posicaoDosPontosMatrix[number]) {
-        const ponto = document.createElement("div");
+	for (const posicaoPonto of posicaoDoPonto[number]) {
+		const dot = document.createElement("div");
 
+		dot.classList.add("pontos-dado");
+		dot.style.setProperty("--top", posicaoPonto[0] + "%");
+		dot.style.setProperty("--left", posicaoPonto[1] + "%");
+		dado.appendChild(dot);
+	}
 
-        
-    }
+	return dado;
+}
 
+function sorteioDosDados(localDosDados, numeroDoDado) {
+	localDosDados.innerHTML = "";
 
+	for (let i = 0; i < numeroDoDado; i++) {
+		const random = Math.floor((Math.random() * 6) + 1);
+		const dado = criarDados(random);
 
-console.log(criarDados(3));
+		localDosDados.appendChild(dado);
+	}
+}
 
+const NUMERO_DO_DADO = 2;
+const localDosDados = document.querySelector(".local-dados");
+const btnSorteoDado = document.querySelector(".btn-sortear-dados");
+
+sorteioDosDados(localDosDados, NUMERO_DO_DADO);
+
+btnSorteoDado.addEventListener("click", () => {
+	const interval = setInterval(() => {
+		sorteioDosDados(localDosDados, NUMERO_DO_DADO);
+	}, 50);
+
+	setTimeout(() => clearInterval(interval), 1000);
+});
