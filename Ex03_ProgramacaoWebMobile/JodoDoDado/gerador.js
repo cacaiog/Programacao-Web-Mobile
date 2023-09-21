@@ -81,7 +81,7 @@ function jogarCraps(localDosDados) {
 
     console.log(`Você lançou: ${somaDados}`);
 
-    // Adicione um atraso de 500 milissegundos (0,5 segundos) antes de exibir o alerta
+    
     setTimeout(() => {
         if (somaDados === 7 || somaDados === 11) {
             mostrarAlerta("Você ganhou! 🎉");
@@ -89,7 +89,7 @@ function jogarCraps(localDosDados) {
             mostrarAlerta("Você perdeu. 😞");
         } else {
             console.log("Você continua jogando...");
-            // Adicione mais regras do Craps, se desejar.
+            
         }
     }, 500);
 }

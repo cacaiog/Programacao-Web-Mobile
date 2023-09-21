@@ -1,35 +1,48 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; 
+    background-color: transparent; 
+    padding: 20px; 
+    border-radius: 20px; 
+}
+
 .local-dados {
-	display: flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #008000; 
+    padding: 20px; 
+    border-radius: 10px; 
 }
 
 .dado {
-	width: 80px;
-	height: 80px;
-	position: relative;
-	margin: 5px;
-	border-radius: 10px;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+    width: 80px;
+    height: 80px;
+    position: relative;
+    margin: 5px;
+    border-radius: 10px;
+    background-color: #ffffff; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
 }
 
 .pontos-dado {
-	--top: 0%;
-	--left: 0%;
+    --top: 0%;
+    --left: 0%;
 
-	width: 15px;
-	height: 15px;
-	background-color: #000000;
-	border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    background-color: #000000; 
+    border-radius: 50%;
 
-	
-	position: absolute;
-	top: var(--top);
-	left: var(--left);
-	transform: translateX(calc(var(--left) * -1)) translateY(calc(var(--top) * -1));
+    position: absolute;
+    top: var(--top);
+    left: var(--left);
+    transform: translateX(calc(var(--left) * -1)) translateY(calc(var(--top) * -1));
 }
-
 
 .btn-sortear-dados {
     margin-top: 10px;
 }
-
-
