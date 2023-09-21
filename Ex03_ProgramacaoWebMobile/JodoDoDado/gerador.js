@@ -89,7 +89,7 @@ function jogarCraps(localDosDados) {
             mostrarAlerta("Você perdeu. 😞");
         } else {
             console.log("Você continua jogando...");
-            
+            // Adicione mais regras do Craps, se desejar.
         }
     }, 500);
 }
