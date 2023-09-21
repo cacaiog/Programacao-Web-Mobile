@@ -1,77 +1,109 @@
+// Definindo NUMERO_DO_DADO como variável global
+const NUMERO_DO_DADO = 2;
+
 function criarDados(number) {
-	const posicaoDoPonto = {
-		1: [
-			[50, 50]
-		],
-		2: [
-			[20, 20],
-			[80, 80]
-		],
-		3: [
-			[20, 20],
-			[50, 50],
-			[80, 80]
-		],
-		4: [
-			[20, 20],
-			[20, 80],
-			[80, 20],
-			[80, 80]
-		],
-		5: [
-			[20, 20],
-			[20, 80],
-			[50, 50],
-			[80, 20],
-			[80, 80]
-		],
-		6: [
-			[20, 20],
-			[20, 80],
-			[50, 20],
-			[50, 80],
-			[80, 20],
-			[80, 80]
-		]
-	};
+    const posicaoDoPonto = {
+        1: [
+            [50, 50]
+        ],
+        2: [
+            [20, 20],
+            [80, 80]
+        ],
+        3: [
+            [20, 20],
+            [50, 50],
+            [80, 80]
+        ],
+        4: [
+            [20, 20],
+            [20, 80],
+            [80, 20],
+            [80, 80]
+        ],
+        5: [
+            [20, 20],
+            [20, 80],
+            [50, 50],
+            [80, 20],
+            [80, 80]
+        ],
+        6: [
+            [20, 20],
+            [20, 80],
+            [50, 20],
+            [50, 80],
+            [80, 20],
+            [80, 80]
+        ]
+    };
 
-	const dado = document.createElement("div");
+    const dado = document.createElement("div");
 
-	dado.classList.add("dado");
+    dado.classList.add("dado");
 
-	for (const posicaoPonto of posicaoDoPonto[number]) {
-		const dot = document.createElement("div");
+    for (const posicaoPonto of posicaoDoPonto[number]) {
+        const dot = document.createElement("div");
 
-		dot.classList.add("pontos-dado");
-		dot.style.setProperty("--top", posicaoPonto[0] + "%");
-		dot.style.setProperty("--left", posicaoPonto[1] + "%");
-		dado.appendChild(dot);
-	}
+        dot.classList.add("pontos-dado");
+        dot.style.setProperty("--top", posicaoPonto[0] + "%");
+        dot.style.setProperty("--left", posicaoPonto[1] + "%");
+        dado.appendChild(dot);
+    }
 
-	return dado;
+    return dado;
 }
 
 function sorteioDosDados(localDosDados, numeroDoDado) {
-	localDosDados.innerHTML = "";
+    localDosDados.innerHTML = "";
 
-	for (let i = 0; i < numeroDoDado; i++) {
-		const random = Math.floor((Math.random() * 6) + 1);
-		const dado = criarDados(random);
+    let somaDados = 0; // Variável para armazenar a soma dos dados
 
-		localDosDados.appendChild(dado);
-	}
+    for (let i = 0; i < numeroDoDado; i++) {
+        const random = Math.floor((Math.random() * 6) + 1);
+        const dado = criarDados(random);
+
+        localDosDados.appendChild(dado);
+
+        // Adicione o valor do dado à soma
+        somaDados += random;
+    }
+
+    return somaDados; // Retornar a soma dos dados
 }
 
-const NUMERO_DO_DADO = 2;
-const localDosDados = document.querySelector(".local-dados");
-const btnSorteoDado = document.querySelector(".btn-sortear-dados");
+function mostrarAlerta(mensagem) {
+    alert(mensagem);
+}
 
-sorteioDosDados(localDosDados, NUMERO_DO_DADO);
+function jogarCraps(localDosDados) {
+    const somaDados = sorteioDosDados(localDosDados, NUMERO_DO_DADO);
+
+    console.log(`Você lançou: ${somaDados}`);
+
+    if (somaDados === 7 || somaDados === 11) {
+        mostrarAlerta("Você ganhou! 🎉");
+    } else if (somaDados === 2 || somaDados === 3 || somaDados === 12) {
+        mostrarAlerta("Você perdeu. 😞");
+    } else {
+        console.log("Você continua jogando...");
+        
+    }
+}
+
+const btnSorteoDado = document.querySelector(".btn-sortear-dados");
+const localDosDados = document.querySelector(".local-dados");
 
 btnSorteoDado.addEventListener("click", () => {
-	const interval = setInterval(() => {
-		sorteioDosDados(localDosDados, NUMERO_DO_DADO);
-	}, 50);
+    const interval = setInterval(() => {
+        sorteioDosDados(localDosDados, NUMERO_DO_DADO);
+    }, 50);
 
-	setTimeout(() => clearInterval(interval), 1000);
+    setTimeout(() => {
+        clearInterval(interval);
+        jogarCraps(localDosDados);
+    }, 1000);
 });
+
+
+sorteioDosDados(localDosDados, NUMERO_DO_DADO);
