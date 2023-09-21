@@ -81,14 +81,17 @@ function jogarCraps(localDosDados) {
 
     console.log(`Você lançou: ${somaDados}`);
 
-    if (somaDados === 7 || somaDados === 11) {
-        mostrarAlerta("Você ganhou! 🎉");
-    } else if (somaDados === 2 || somaDados === 3 || somaDados === 12) {
-        mostrarAlerta("Você perdeu. 😞");
-    } else {
-        console.log("Você continua jogando...");
-        
-    }
+    // Adicione um atraso de 500 milissegundos (0,5 segundos) antes de exibir o alerta
+    setTimeout(() => {
+        if (somaDados === 7 || somaDados === 11) {
+            mostrarAlerta("Você ganhou! 🎉");
+        } else if (somaDados === 2 || somaDados === 3 || somaDados === 12) {
+            mostrarAlerta("Você perdeu. 😞");
+        } else {
+            console.log("Você continua jogando...");
+            
+        }
+    }, 500);
 }
 
 const btnSorteoDado = document.querySelector(".btn-sortear-dados");
@@ -105,5 +108,5 @@ btnSorteoDado.addEventListener("click", () => {
     }, 1000);
 });
 
-
+// Executa o sorteio inicial quando a página carrega
 sorteioDosDados(localDosDados, NUMERO_DO_DADO);
