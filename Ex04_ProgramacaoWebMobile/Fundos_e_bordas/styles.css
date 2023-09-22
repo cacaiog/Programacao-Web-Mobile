@@ -1,0 +1,19 @@
+
+h1 {
+    background-color: red;
+    border: 2px solid green;
+    padding: 10px;
+    text-align: center;
+}
+
+
+body {
+    background-image: url('https://cdn.pixabay.com/photo/2020/05/01/15/39/jeep-5117728_1280.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin: 0;
+}
+
+
+
