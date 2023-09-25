@@ -1,5 +1,13 @@
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
 body {
-    font-family: 'Arial', sans-serif; 
+    font-family: 'Arial', sans-serif;
     background-color: #f2f2f2;
     text-align: center;
     margin: 0;
@@ -22,10 +30,28 @@ a {
     padding: 5px 10px;
     border-radius: 4px;
 }
-/*TESTE2*/
 
 a:hover {
     color: #03a9f4;
     text-decoration: underline;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+
+h1 {
+    font-size: 1.5rem; 
+}
+
+a {
+    padding: 3px 6px; 
+}
+
+@media screen and (max-width: 480px) {
+    h1 {
+        font-size: 1.2rem; 
+    }
+    
+    a {
+        padding: 2px 4px; 
+    }
 }
